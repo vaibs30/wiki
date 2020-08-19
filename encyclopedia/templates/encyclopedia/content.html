@@ -1,0 +1,15 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    {% if content_html == none %}
+       <h1>Error</h1>
+       <p>The page you requested for does not exist. </p>
+    {% else %}   
+        {{ content_html|safe|escape }}
+        <a href="/wiki/{{title}}/edit"><input class="btn btn-primary" type="button" value="Edit"></a>
+    {% endif%}
+{% endblock %}
